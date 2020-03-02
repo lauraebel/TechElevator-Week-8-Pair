@@ -7,14 +7,14 @@
 
 <div id="main-content">
 
-<h2 class="centered"> Alien Age Calculator </h2>
+<h2 class="centered"> Alien Weight Calculator </h2>
 
 
 <img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>;
 
 
 
-<h3>If you are ${param.age} years old on planet Earth, then you are <fmt:formatNumber value="${planetAge}" type="number" maxFractionDigits="2" /> ${param.planet} years old.  </h3>
+<h3>If you are ${param.weight} pounds on planet Earth, then you  would weigh <fmt:formatNumber value="${planetWeight}" type="number" maxFractionDigits="2" /> pounds on ${param.planet}.  </h3>
 
 </div>
 
