@@ -8,12 +8,15 @@
 
 <h2 class="centered"> Alien Travel Calculator </h2>
 
+<section class="calculatorOutput">
 
-<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>;
+<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>
 
 
 
 <h3> Traveling by ${param.method} you will reach ${param.planet} in <fmt:formatNumber value="${travelTime}" type="number" maxFractionDigits="2" /> years. You will be <fmt:formatNumber value="${travelAge}" type="number" maxFractionDigits="2" /> years old. </h3>
+
+</section>
 
 </div>
 

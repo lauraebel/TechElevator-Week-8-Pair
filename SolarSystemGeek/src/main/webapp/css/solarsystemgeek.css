@@ -213,12 +213,21 @@ section.centeredPanel p {
 /* Calculator Result */
 section#calculatorResult img {
 	float: left;
+	width: 30%;
 }
 
 section#calculatorResult h2 {
 	float: left;
-	width: 50%;
+	width: 30%;
 	text-align: left;
+}
+
+section.calculatorOutput {
+	display: flex;
+}
+
+section.calculatorOutput img {
+	width: 20%;
 }
 
 /* Space Forum Posts */

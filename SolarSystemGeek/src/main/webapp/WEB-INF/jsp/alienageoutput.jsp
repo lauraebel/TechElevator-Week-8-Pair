@@ -9,12 +9,16 @@
 
 <h2 class="centered"> Alien Age Calculator </h2>
 
+<section class="calculatorOutput">
 
-<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>;
+
+<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>
 
 
 
 <h3>If you are ${param.age} years old on planet Earth, then you are <fmt:formatNumber value="${planetAge}" type="number" maxFractionDigits="2" /> ${param.planet} years old.  </h3>
+
+</section>
 
 </div>
 

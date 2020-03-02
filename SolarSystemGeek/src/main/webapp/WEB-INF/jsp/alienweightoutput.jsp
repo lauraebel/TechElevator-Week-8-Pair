@@ -9,12 +9,15 @@
 
 <h2 class="centered"> Alien Weight Calculator </h2>
 
+<section class="calculatorOutput">
 
-<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>;
+<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>
 
 
 
 <h3>If you are ${param.weight} pounds on planet Earth, then you  would weigh <fmt:formatNumber value="${planetWeight}" type="number" maxFractionDigits="2" /> pounds on ${param.planet}.  </h3>
+
+</section>
 
 </div>
 
