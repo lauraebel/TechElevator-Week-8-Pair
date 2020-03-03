@@ -12,7 +12,7 @@
 <section class="calculatorOutput">
 
 
-<img src="<c:url value="/img/${param.planet.toLowerCase() }.jpg" />"/>
+<img src="<c:url value="/img/${param.planet.toLowerCase()}.jpg" />"/>
 
 
 

@@ -22,8 +22,8 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/alienage")
-		public String displayAlienAgePage() {
-		return "alienage";
+	public String displayAlienAgePage() {
+	return "alienage";
 	}
 	
 	@RequestMapping("/alienweight")
@@ -38,9 +38,9 @@ public class HomeController {
 	
 	@RequestMapping("/alienagesubmission")
 	public String calculateAlienAge(HttpServletRequest request) {
-		ageMap.put("Mercury", 87.96 * 365.26);
-		ageMap.put("Venus", 224.68 * 365.26);
-		ageMap.put("Mars", 686.9 * 365.26);
+		ageMap.put("Mercury", 365.26/87.96);
+		ageMap.put("Venus", 365.26/224.68);
+		ageMap.put("Mars", 365.26/686.9);
 		ageMap.put("Jupiter", 11.86);
 		ageMap.put("Saturn", 29.456);
 		ageMap.put("Uranus", 84.07);
