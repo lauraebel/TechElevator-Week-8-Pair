@@ -25,6 +25,7 @@
         <ul>
              <li><a href="<c:url value="/alienage" />" >Alien Age</a></li>
             <li><a href="<c:url value="/alienweight"/>">Alien Weight</a></li>
-            <li><a href="<c:url value="/drivetime"/>">Drive Time</a></li>                
+            <li><a href="<c:url value="/drivetime"/>">Drive Time</a></li>  
+            <li><a href="<c:url value="/spaceforum"/>">Space Forum</a></li>              
         </ul>
     </nav>

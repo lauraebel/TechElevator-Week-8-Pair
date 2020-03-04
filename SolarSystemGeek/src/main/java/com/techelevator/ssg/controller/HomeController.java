@@ -1,12 +1,21 @@
 package com.techelevator.ssg.controller;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.techelevator.ssg.model.forum.ForumDao;
+import com.techelevator.ssg.model.forum.ForumPost;
 
 @Controller
 public class HomeController {
@@ -15,6 +24,10 @@ public class HomeController {
 	private Map<String, Double> weightMap = new HashMap<String, Double>();
 	private Map<String, Double> travelMap = new HashMap<String, Double>();
 	private Map<String, Integer> methodMap = new HashMap<String, Integer>();
+	
+	
+	@Autowired
+	private ForumDao forumdao;
 	
 	@RequestMapping("/")
 	public String displayHomePage() {
@@ -99,4 +112,38 @@ public class HomeController {
 	
 	return "drivetimeoutput";
 	}
+	
+	@RequestMapping("/spaceforum")
+	public String showForumPost(ModelMap map) {
+		List<ForumPost> post = forumdao.getAllPosts();
+		map.put("posts", post);
+		
+		return "spaceforum";
+	}
+	
+	
+	@RequestMapping("/submitforumpage")
+	public String submitPost() {
+		
+		
+		return "submitforumpage";
+	}
+	
+	@RequestMapping(path="/submitforumpost", method=RequestMethod.POST)
+	public String addNewPost(@RequestParam String Username, @RequestParam String Subject, @RequestParam String Message ) {
+		ForumPost forumpost = new ForumPost();
+		forumpost.setUsername(Username);
+		forumpost.setDatePosted(LocalDateTime.now());
+		forumpost.setMessage(Message);
+		forumpost.setSubject(Subject);
+		
+		
+		forumdao.save(forumpost);
+		
+		return "redirect:/spaceforum";
+	}
+	
+	
+	
+	
 }
