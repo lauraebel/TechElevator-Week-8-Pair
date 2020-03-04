@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.ssg.model.forum.ForumDao;
 import com.techelevator.ssg.model.forum.ForumPost;
+import com.techelevator.ssg.model.store.Product;
+import com.techelevator.ssg.model.store.ProductDao;
 
 @Controller
 public class HomeController {
@@ -28,6 +30,8 @@ public class HomeController {
 	
 	@Autowired
 	private ForumDao forumdao;
+	@Autowired
+	private ProductDao productdao;
 	
 	@RequestMapping("/")
 	public String displayHomePage() {
@@ -121,11 +125,8 @@ public class HomeController {
 		return "spaceforum";
 	}
 	
-	
 	@RequestMapping("/submitforumpage")
-	public String submitPost() {
-		
-		
+	public String submitPost() {	
 		return "submitforumpage";
 	}
 	
@@ -137,13 +138,25 @@ public class HomeController {
 		forumpost.setMessage(Message);
 		forumpost.setSubject(Subject);
 		
-		
 		forumdao.save(forumpost);
 		
 		return "redirect:/spaceforum";
 	}
 	
+	@RequestMapping("/spacestore")
+	public String showInventory(ModelMap map) {
+		List<Product> productList = productdao.getAllProducts();
+		map.put("products", productList);
+		return "spacestore";
+	}
 	
+	@RequestMapping("/productdetail")
+	public String showProductDetail(HttpServletRequest request, ModelMap map) {
+		System.out.println(map.get("id"));
+		Product product = productdao.getProductById(Long.parseLong(request.getParameter("id")));
+		map.put("product", product);
+		return "productdetail";
+	}
 	
 	
 }
